@@ -1,0 +1,41 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:GridBindingTest.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Height="600"
+        Width="800"
+        x:Class="GridBindingTest.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="GridBindingTest">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <Grid>
+
+        <DataGrid
+            AutoGenerateColumns="False"
+            Margin="10"
+            ItemsSource="{Binding People}"
+            GridLinesVisibility="All"
+            BorderThickness="1"
+            BorderBrush="Gray">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Name 1" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="TagsCount 1" Binding="{Binding TagsCount}" />
+                <DataGridTextColumn Header="Tags" Binding="{Binding Tags}" />
+                <DataGridTextColumn Header="TagsCount 2" Binding="{Binding TagsCount}" />
+                <DataGridTextColumn Header="Name 2" Binding="{Binding Name}" />
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+    </Grid>
+
+</Window>
